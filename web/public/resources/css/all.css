@@ -1,0 +1,99 @@
+body{
+  font-family: Bitter;
+  font-size: 14px;
+  margin: 0;
+}
+
+.header{
+  padding: 35px 20px;
+  background-color: #1F3259;
+  color: #FFF;
+  text-align: center;
+}
+
+.header .h1, h4{
+  margin: 0;
+}
+
+.header .h1{
+  text-shadow: 2px 2px #001B4D;
+  font-size: 6em;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.header .h1 img{
+  display: block;
+  margin: auto;
+}
+
+.header h4{
+  font-size: 1.6em;
+  font-weight: normal;
+  color: #ABC4F4;
+}
+
+.header h4 code{
+  font-size: 0.8em;
+}
+
+#message-box{
+  position: fixed;
+  left: 30px;
+  top: 30px;
+  background-color: #FFF;
+  padding: 20px 50px;
+  border-radius: 3px;
+  color: #F1F1F1;
+}
+
+#message-box .btn-close{
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+
+#message-box.error{
+  background-color: #d83434;
+}
+
+#message-box.success{
+  background-color: #60b044;
+}
+
+#games{
+  padding: 20px;
+  margin: auto;
+}
+
+#games a{
+  border-radius: 50%;
+  font-size: 1.5em;
+  font-family: Bitter;
+  background-color: #333;
+  width: 200px;
+  height: 200px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #FFF;
+  margin: 10px;
+  transition: background-color 1s, width 0.5s, height 0.5s;
+}
+
+#games a:hover{
+  background-color: #666;
+  width: 220px;
+  height: 220px;
+}
+
+/**
+  Games CSS
+*/
+
+canvas.workspace-game {
+  overflow hidden;
+  position: relative;
+  border: #CCC 1px solid;
+  border-radius: 3px;
+}

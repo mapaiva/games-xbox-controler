@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test canvas element Game</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+  <link href='/resources/css/all.css' rel='stylesheet' type='text/css' />
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/resources/js/GE.js"></script>
+  <script charset="utf-8">
+    /**
+    Canvas Game
+    */
+    function Game() {
+      this.name = 'Game interpreting Xbox controller commands';
+      this.util = {
+        query: function (att) {
+          return document.querySelector(att);
+        }
+      };
+
+      this.WS = this.util.query('.workspace-game');
+      this.WS.width = window.innerWidth;
+      this.WS.height = window.innerHeight;
+
+      this.x = 80;
+      this.y = 100;
+
+      this.buildWorkSpace();
+    }
+
+    Game.prototype.buildWorkSpace = function () {
+      if(!this.WS){
+        throw 'Element [canvas.workspace-game] not found';
+      }
+
+      this.context = this.WS.getContext('2d');
+
+      var ctx = this.context;
+
+      ctx.fillStyle = 'blue';
+
+      // set line width for all lines
+      ctx.lineWidth = 2;
+
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+
+      ctx.strokeStyle = '#377dc4';
+      ctx.stroke();
+    }
+
+    Game.prototype.moveLeft = function (size) {
+      this.x = this.x - size;
+
+      this.context.lineTo(this.x, this.y);
+      this.context.stroke();
+    }
+
+    Game.prototype.moveRight = function (size) {
+      this.x = this.x + size;
+
+      this.context.lineTo(this.x, this.y);
+      this.context.stroke();
+    }
+
+    Game.prototype.moveDown = function (size) {
+      this.y = this.y + size;
+
+      this.context.lineTo(this.x, this.y);
+      this.context.stroke();
+    }
+
+    Game.prototype.moveUp = function (size) {
+      this.y = this.y - size;
+
+      this.context.lineTo(this.x, this.y);
+      this.context.stroke();
+    }
+
+    var GE = new GE();
+
+    function load() {
+      var game = new Game();
+
+      GE.socket.on('generalerror', function (msg) {
+        GE.showError(msg);
+      });
+
+      GE.socket.on('controldata', function (dir, ctrl) {
+        switch(dir){
+          case 'right':
+            game.moveRight(50);
+            break;
+          case 'left':
+            game.moveLeft(50);
+            break;
+          case 'down':
+            game.moveDown(50);
+            break;
+          case 'up':
+            game.moveUp(50);
+            break;
+        }
+
+        switch(ctrl){
+          case 'a':
+            GE.showSuccess('[A] button pressed');
+            break;
+        }
+      });
+    }
+
+    window.onload = load;
+  </script>
+</head>
+<body>
+  <canvas class="workspace-game"></canvas>
+</body>
+</html>

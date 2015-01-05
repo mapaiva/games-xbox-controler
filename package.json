@@ -1,0 +1,28 @@
+{
+  "name": "games-xbox-controler",
+  "version": "1.0.0",
+  "description": "Web application with examples of games using xbox-controller-node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mapaiva/games-xbox-controler.git"
+  },
+  "keywords": [
+    "games",
+    "xbox",
+    "controller"
+  ],
+  "author": "Matheus Paiva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mapaiva/games-xbox-controler/issues"
+  },
+  "homepage": "https://github.com/mapaiva/games-xbox-controler",
+  "dependencies": {
+    "express": "^4.10.6",
+    "socket.io": "^1.2.1",
+    "xbox-controller-node": "^1.0.3"
+  }
+}
