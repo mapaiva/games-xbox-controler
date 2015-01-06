@@ -21,25 +21,25 @@ GE.prototype.showError = function (msg) {
 }
 
 GE.prototype.showSuccess = function (msg) {
+  var node = getMessageBOX(msg);
 
-  document.body.appendChild(getMessageBOX(msg));
+  document.body.appendChild(node);
 }
 
 function getMessageBOX(msg) {
-  var node = document.createElement('div'),
-    closeButton = document.createElement('span');
-
-  closeButton.className = 'btn-close';
-  closeButton.onclick = function () {
-    document.body.removeChild(this.parentNode);
-  };
-  closeButton.innerHTML = ' [ X ]';
-  closeButton.title = 'Close';
+  var node = document.createElement('div');
 
   node.id = 'message-box';
   node.className = 'success';
   node.innerHTML = msg;
-  node.appendChild(closeButton);
+
+  setTimeout(function () {
+    node.style.opacity = 0;
+
+    setTimeout(function () {
+      document.body.removeChild(node);
+    }, 1000);
+  }, 4000);
 
   return node;
 }

@@ -28,7 +28,7 @@ body{
 }
 
 .header h4{
-  font-size: 1.6em;
+  font-size: 1.5em;
   font-weight: normal;
   color: #ABC4F4;
 }
@@ -39,26 +39,38 @@ body{
 
 #message-box{
   position: fixed;
-  left: 30px;
+  right: 30px;
   top: 30px;
   background-color: #FFF;
-  padding: 20px 50px;
+  padding: 20px 40px;
   border-radius: 3px;
   color: #F1F1F1;
+  z-index: 3;
+  transition: all 1s;
 }
 
 #message-box .btn-close{
   cursor: pointer;
   color: #000;
   font-weight: bold;
+  background: rgba(241, 241, 241, 0.42);
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+#message-box .btn-close:hover{
+  background: rgba(241, 241, 241, 0.62);
 }
 
 #message-box.error{
   background-color: #d83434;
+  border-top: #FF7070 2px solid;
 }
 
 #message-box.success{
   background-color: #60b044;
+  border-top: #74DD4F 2px solid;
 }
 
 #games{
@@ -91,9 +103,42 @@ body{
   Games CSS
 */
 
+.side-menu .header{
+  max-width: 200px;
+  font-size: 0.5em;
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  padding: 25px 0px;
+  z-index: 2;
+}
+
+.side-menu .header img{
+  height: 35px;
+}
+
+.game-workspace{
+  color: #666;
+  overflow: hidden;
+  padding: 20px;
+  position: fixed;
+  left: 200px;
+  height: 100%;
+}
+
+.game-workspace h1{
+  font-size: 2.5em;
+  font-weight: normal;
+  color: #333;
+  margin: 0;
+  border-bottom: #E7E7E7 1px solid;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
 canvas.workspace-game {
-  overflow hidden;
   position: relative;
-  border: #CCC 1px solid;
+  border: #CCC 1px dashed;
   border-radius: 3px;
 }

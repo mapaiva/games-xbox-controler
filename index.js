@@ -17,7 +17,7 @@ io.on('connection', function (socket) {
   }else{
 
     xbox.on('data', function (dir, ctrl) {
-      socket.emit('controldata', dir, ctrl);
+      socket.emit('controllerdata', dir, ctrl);
     });
   }
 });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test canvas element Game</title>
+  <title>Canvas Game - Games Gallery using Xbox Controller Interface</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -10,77 +10,8 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/resources/js/GE.js"></script>
+  <script src="/resources/js/canvas-game.js"></script>
   <script charset="utf-8">
-    /**
-    Canvas Game
-    */
-    function Game() {
-      this.name = 'Game interpreting Xbox controller commands';
-      this.util = {
-        query: function (att) {
-          return document.querySelector(att);
-        }
-      };
-
-      this.WS = this.util.query('.workspace-game');
-      this.WS.width = window.innerWidth;
-      this.WS.height = window.innerHeight;
-
-      this.x = 80;
-      this.y = 100;
-
-      this.buildWorkSpace();
-    }
-
-    Game.prototype.buildWorkSpace = function () {
-      if(!this.WS){
-        throw 'Element [canvas.workspace-game] not found';
-      }
-
-      this.context = this.WS.getContext('2d');
-
-      var ctx = this.context;
-
-      ctx.fillStyle = 'blue';
-
-      // set line width for all lines
-      ctx.lineWidth = 2;
-
-      ctx.beginPath();
-      ctx.moveTo(this.x, this.y);
-
-      ctx.strokeStyle = '#377dc4';
-      ctx.stroke();
-    }
-
-    Game.prototype.moveLeft = function (size) {
-      this.x = this.x - size;
-
-      this.context.lineTo(this.x, this.y);
-      this.context.stroke();
-    }
-
-    Game.prototype.moveRight = function (size) {
-      this.x = this.x + size;
-
-      this.context.lineTo(this.x, this.y);
-      this.context.stroke();
-    }
-
-    Game.prototype.moveDown = function (size) {
-      this.y = this.y + size;
-
-      this.context.lineTo(this.x, this.y);
-      this.context.stroke();
-    }
-
-    Game.prototype.moveUp = function (size) {
-      this.y = this.y - size;
-
-      this.context.lineTo(this.x, this.y);
-      this.context.stroke();
-    }
-
     var GE = new GE();
 
     function load() {
@@ -90,7 +21,7 @@
         GE.showError(msg);
       });
 
-      GE.socket.on('controldata', function (dir, ctrl) {
+      GE.socket.on('controllerdata', function (dir, ctrl) {
         switch(dir){
           case 'right':
             game.moveRight(50);
@@ -110,6 +41,27 @@
           case 'a':
             GE.showSuccess('[A] button pressed');
             break;
+          case 'b':
+            GE.showSuccess('[B] button pressed');
+            break;
+          case 'x':
+            GE.showSuccess('[X] button pressed');
+            break;
+          case 'y':
+            GE.showSuccess('[Y] button pressed');
+            break;
+          case 'rb':
+            GE.showSuccess('[RB] button pressed');
+            break;
+          case 'lb':
+            GE.showSuccess('[LB] button pressed');
+            break;
+          case 'start':
+            GE.showSuccess('[Start] button pressed');
+            break;
+          case 'select':
+            GE.showSuccess('[Select] button pressed');
+            break;
         }
       });
     }
@@ -118,6 +70,15 @@
   </script>
 </head>
 <body>
-  <canvas class="workspace-game"></canvas>
+  <div class="side-menu">
+    <div class="header">
+      <a href="/" class="h1"><img src="/resources/images/xbox-controller.fw.png" /> Games Gallery</a>
+      <h4>Games using <code>xbox-controller-node</code></h4>
+    </div>
+  </div>
+  <div class="game-workspace">
+    <h1>Canvas Game</h1>
+    <canvas class="workspace-game"></canvas>
+  </div>
 </body>
 </html>
