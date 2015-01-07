@@ -15,55 +15,9 @@
     var GE = new GE();
 
     function load() {
-      var game = new Game();
+      var game = new Game(GE);
 
-      GE.socket.on('generalerror', function (msg) {
-        GE.showError(msg);
-      });
-
-      GE.socket.on('controllerdata', function (dir, ctrl) {
-        switch(dir){
-          case 'right':
-            game.moveRight(50);
-            break;
-          case 'left':
-            game.moveLeft(50);
-            break;
-          case 'down':
-            game.moveDown(50);
-            break;
-          case 'up':
-            game.moveUp(50);
-            break;
-        }
-
-        switch(ctrl){
-          case 'a':
-            GE.showSuccess('[A] button pressed');
-            break;
-          case 'b':
-            GE.showSuccess('[B] button pressed');
-            break;
-          case 'x':
-            GE.showSuccess('[X] button pressed');
-            break;
-          case 'y':
-            GE.showSuccess('[Y] button pressed');
-            break;
-          case 'rb':
-            GE.showSuccess('[RB] button pressed');
-            break;
-          case 'lb':
-            GE.showSuccess('[LB] button pressed');
-            break;
-          case 'start':
-            GE.showSuccess('[Start] button pressed');
-            break;
-          case 'select':
-            GE.showSuccess('[Select] button pressed');
-            break;
-        }
-      });
+      game.start();
     }
 
     window.onload = load;

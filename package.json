@@ -23,6 +23,6 @@
   "dependencies": {
     "express": "^4.10.6",
     "socket.io": "^1.2.1",
-    "xbox-controller-node": "^1.0.3"
+    "xbox-controller-node": "^1.1.0"
   }
 }

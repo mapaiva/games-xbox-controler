@@ -16,8 +16,57 @@ io.on('connection', function (socket) {
     socket.emit('generalerror', 'Xbox controller not found');
   }else{
 
-    xbox.on('data', function (dir, ctrl) {
-      socket.emit('controllerdata', dir, ctrl);
-    });
+    emitControllerEvents(socket);
   }
 });
+
+function emitControllerEvents(socket) {
+
+  xbox.on('a', function () {
+    socket.emit('a');
+  });
+
+  xbox.on('b', function () {
+    socket.emit('b');
+  });
+
+  xbox.on('y', function () {
+    socket.emit('y');
+  });
+
+  xbox.on('x', function () {
+    socket.emit('x');
+  });
+
+  xbox.on('rb', function () {
+    socket.emit('rb');
+  });
+
+  xbox.on('lb', function () {
+    socket.emit('lb');
+  });
+
+  xbox.on('start', function () {
+    socket.emit('start');
+  });
+
+  xbox.on('select', function () {
+    socket.emit('select');
+  });
+
+  xbox.on('up', function () {
+    socket.emit('up');
+  });
+
+  xbox.on('down', function () {
+    socket.emit('down');
+  });
+
+  xbox.on('left', function () {
+    socket.emit('left');
+  });
+
+  xbox.on('right', function () {
+    socket.emit('right');
+  });
+}
