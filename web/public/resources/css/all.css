@@ -79,9 +79,8 @@ body{
 }
 
 #games a{
-  border-radius: 50%;
+  padding: 20px;
   font-size: 1.5em;
-  font-family: Bitter;
   background-color: #333;
   width: 200px;
   height: 200px;
@@ -90,13 +89,13 @@ body{
   text-align: center;
   color: #FFF;
   margin: 10px;
-  transition: background-color 1s, width 0.5s, height 0.5s;
+  transition: background-color 1s, width 0.5s;
 }
 
 #games a:hover{
   background-color: #666;
   width: 220px;
-  height: 220px;
+  text-decoration: none;
 }
 
 /**
@@ -137,8 +136,11 @@ body{
   margin-bottom: 10px;
 }
 
+.game-workspace canvas{
+  border-radius: 3px;
+}
+
 canvas.workspace-game {
   position: relative;
   border: #CCC 1px dashed;
-  border-radius: 3px;
 }
