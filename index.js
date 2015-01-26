@@ -69,4 +69,26 @@ function emitControllerEvents(socket) {
   xbox.on('right', function () {
     socket.emit('right');
   });
+
+  xbox.on('upleft', function () {
+    socket.emit('upleft');
+  });
+
+  xbox.on('upright', function () {
+    socket.emit('upright');
+  });
+
+  /* none events */
+
+  xbox.on('up:none', function () {
+    socket.emit('up:none');
+  });
+
+  xbox.on('upleft:none', function () {
+    socket.emit('upleft:none');
+  });
+
+  xbox.on('upright:none', function () {
+    socket.emit('upright:none');
+  });
 }
