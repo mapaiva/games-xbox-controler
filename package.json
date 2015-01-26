@@ -22,7 +22,7 @@
   "homepage": "https://github.com/mapaiva/games-xbox-controler",
   "dependencies": {
     "express": "^4.10.6",
-    "socket.io": "^1.2.1",
+    "socket.io": "^1.2.2",
     "xbox-controller-node": "^1.2.1"
   }
 }
