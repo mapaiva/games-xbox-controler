@@ -1,0 +1,3 @@
+[submodule "web/public/resources/js/lib/HexGL"]
+      path = web/public/resources/js/lib/HexGL
+      url = https://github.com/mapaiva/HexGL.git
