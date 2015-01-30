@@ -140,6 +140,11 @@ body{
   border-radius: 3px;
 }
 
+.game-workspace iframe{
+  border: 0;
+  border-radius: 3px;
+}
+
 canvas.workspace-game {
   position: relative;
   border: #CCC 1px dashed;
