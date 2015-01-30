@@ -16,10 +16,14 @@
     <div class="header">
       <a href="/" class="h1"><img src="/resources/images/xbox-controller.fw.png" /> Games Gallery</a>
       <h4>Games using <code>xbox-controller-node</code></h4>
+      <ul>
+        <li><a href="/examples/canvas-game/">Canvas Game</a></li>
+        <li><a href="/examples/threejs/" id="current">Three.js Game</a></li>
+        <li><a href="/examples/HexGL/">Racing Game</a></li>
+      </ul>
     </div>
   </div>
   <div class="game-workspace">
-    <h1>Three.js Game</h1>
     <script src="/resources/js/lib/three.min.js"></script>
     <script>
       var GE = new GE();
@@ -32,7 +36,7 @@
       var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
       var renderer = new THREE.WebGLRenderer();
-      renderer.setSize( window.innerWidth - 240, window.innerHeight - 110 );
+      renderer.setSize( window.innerWidth - 240, window.innerHeight - 40 );
       document.querySelector('.game-workspace').appendChild( renderer.domElement );
 
       var geometry = new THREE.BoxGeometry( 1, 1, 1 );

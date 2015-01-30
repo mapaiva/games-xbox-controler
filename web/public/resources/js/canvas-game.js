@@ -13,7 +13,7 @@ function Game(GE) {
 
   this.WS = this.util.query('.workspace-game');
   this.WS.width = (window.innerWidth - 240);
-  this.WS.height = (window.innerHeight - 110);
+  this.WS.height = (window.innerHeight - 40);
 
   this.x = 80;
   this.y = 100;
