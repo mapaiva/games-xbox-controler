@@ -113,8 +113,8 @@ Game.prototype.interpretSocketEvents = function () {
       GE.showSuccess('[Start] button pressed');
     });
 
-    socket.on('select', function () {
-      GE.showSuccess('[Select] button pressed');
+    socket.on('back', function () {
+      GE.showSuccess('[Back] button pressed');
     });
 
     socket.on('up', function () {

@@ -50,8 +50,8 @@ function emitControllerEvents(socket) {
     socket.emit('start');
   });
 
-  xbox.on('select', function () {
-    socket.emit('select');
+  xbox.on('back', function () {
+    socket.emit('back');
   });
 
   xbox.on('up', function () {
