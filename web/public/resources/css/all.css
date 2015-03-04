@@ -74,7 +74,7 @@ body{
 }
 
 #games{
-  padding: 20px;
+  padding: 20px 0;
   margin: auto;
 }
 
@@ -82,7 +82,7 @@ body{
   padding: 20px;
   font-size: 1.5em;
   background-color: #333;
-  width: 200px;
+  width: 20%;
   height: 200px;
   display: table-cell;
   vertical-align: middle;
@@ -94,7 +94,46 @@ body{
 
 #games a:hover{
   background-color: #666;
-  width: 220px;
+  width: 22%;
+  text-decoration: none;
+}
+
+.container{
+  overflow: hidden;
+  width: 100%;
+}
+
+.content{
+  color: #333;
+  width: 1000px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.content h1{
+  font-size: 2.5em;
+  padding-top: 40px;
+}
+
+.content h1.first{
+  padding-top: 0px;
+}
+
+.content code, .content pre{
+  background-color: #EEE;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.content pre{
+  padding: 20px;
+}
+
+.content a{
+  color: #395EAD;
+}
+
+.content a:hover{
   text-decoration: none;
 }
 
@@ -173,4 +212,12 @@ body{
 canvas.workspace-game {
   position: relative;
   border: #CCC 1px dashed;
+}
+
+/**
+ * Colors
+*/
+
+.gray{
+  background-color: #f1f1f1;
 }
